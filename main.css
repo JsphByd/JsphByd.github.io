@@ -1,3 +1,37 @@
 body {
-    background-color: blue;
+    background-color: beige;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+textarea {
+    width: 800px;
+    height: 150px;
+}
+
+#memorize {
+    display:none;
+}
+
+#options {
+    display: flex;
+}
+
+#back {
+    display:none;
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+
+#text {
+    display: none;
+}
+
+#actualText {
+    display: none;
 }
