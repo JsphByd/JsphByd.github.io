@@ -30,8 +30,15 @@ textarea {
 
 #text {
     display: none;
+    align-items:center;
 }
 
 #actualText {
     display: none;
+}
+
+article{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

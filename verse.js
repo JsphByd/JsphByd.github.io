@@ -20,26 +20,31 @@ document.getElementById("memorize").addEventListener("submit", function(event){
     verseInput = verseInput.toLowerCase()
     passage = passage.trim()
     verseInput = verseInput.trim()
-    var substring = ""
+    var substring1 = ""
+    var substring2 = ""
 
     for(var i = 0; i < verseInput.length || i < passage.length; i++)
     {
         if(verseInput[i] !== passage[i])
         {
-            substring = verseInput.substring(0, i+5)
+            substring1 = verseInput.substring(0, i+5)
+            substring2 = passage.substring(0,i+5)
+            break
         }
     }
 
-    if(substring === "")
+    if(substring1 === "")
     {
         document.getElementById("text").innerText = "PERFECT!"
         document.getElementById("text").style.display = "flex"
+        document.getElementById("actualText").style.display = "none"
     }
-    else
+    else //want mistake to be highlighted 
     {
-        document.getElementById("text").innerText = "Your Attempt - " + substring
+        document.getElementById("text").innerText = "Your Attempt - " + substring1
         document.getElementById("text").style.display = "flex"
-        document.getElementById("actualText").innerText = "Actual Verse - " + passage.substring(0,i+5)
+
+        document.getElementById("actualText").innerText = "Actual Verse - " + substring2
         document.getElementById("actualText").style.display = "flex"
     }
 })
@@ -114,6 +119,9 @@ function displayMode(mode)
         document.getElementById("back").style.display = "none"
         document.getElementById("text").style.display = "none"
         document.getElementById("actualText").style.display = "none"
+
+        document.getElementById("text").innerText = ""
+        document.getElementById("actualText").innerText = ""
     }
     else if(mode === 1) //mode 1 - show memorize, not options
     {
