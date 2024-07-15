@@ -5,12 +5,13 @@
     <script src="verse.js" defer></script>
 </head>
 
-<div id="form_box">
     
 <body>
-    <form id="options">
+    
+    <div id="form_box" class="menu_select">
+    <form id="options" class="menu_select">
         <form>
-            <label for="bibleBooks">Select a book:</label>
+            <label for="bibleBooks">Book:</label>
             <select id="bibleBooks" name="bibleBooks">
                 <option value="Genesis">Genesis</option>
                 <option value="Exodus">Exodus</option>
@@ -80,13 +81,13 @@
                 <option value="Revelation">Revelation</option>
             </select>
 
-            <label for="chapter">Chapter</label>
+            <label for="chapter">Ch</label>
             <input type="text" id="chapter">
             
-            <label for="verseStart">Start Verse</label>
+            <label for="verseStart">Start v.</label>
             <input type="text" id="verseStart">
 
-            <laebl for="verseEnd">End Verse</laebl>
+            <label for="verseEnd">End v.</label>
             <input type="text" id="verseEnd">
 
             <button type="Submit">Submit</button>
@@ -94,17 +95,38 @@
 
     </div>
 
-    <form id="memorize">
-        <label id="selectedVerse" for="verseInput">Verse Input</label>
+    <img id="right_arrow" src="./img/arrow-right.png"> <!-- src for arrows https://www.flaticon.com/free-icon/arrow-right_1549454?term=arrow&page=1&position=1&origin=style&related_id=1549454 -->
+    <img id="left_arrow" src="./img/left.png">
+
+    <div id="memorize_box_blind" class="menu_memorize"> <!-- Input text directly from memory -->
+
+        <h1 id="memorize_target">Blind Recite</h1> <!-- Book Chapter:Verse-Verse header -->
         <textarea id="verseInput"></textarea>
         <button type="submit">Submit</button>
-    </form>
+
+    </div>
+
+    <div id="memorize_box_firstLetter" class="menu_memorize"> <!-- Input text directly from memory -->
+
+        <h1 id="memorize_target">Blind Recite</h1> <!-- Book Chapter:Verse-Verse header -->
+        <!-- need to load in the first letter of each word in the target -->
+    </div>
+
+    <div id="memorize_box_read" class="menu_memorize"> <!-- Input text directly from memory -->
+
+        <h1 id="memorize_target">Blind Recite</h1> <!-- Book Chapter:Verse-Verse header -->
+        <p id="read_text"></p>
+
+    </div>
+
     
-    <form id="back">
-        <button type="Submit">Back</button>
-    </form>
-    <article>        
+    
+
+    <!-- input compared to actual text -->
+    <article class="menu_memorize">        
         <p id="text"></p>
         <p id="actualText"></p>
     </article>
+
+
 </body>
