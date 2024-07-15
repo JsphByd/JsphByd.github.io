@@ -2,9 +2,15 @@ var verse = "John+11:35"
 const API_AUTH = "e3210c395a706385d82e581dd6a614061e63acdc" //Psst! You normally should never expose your API key - but I do not care if you steal it.
 const right_arrow = document.getElementById("right_arrow")
 const left_arrow = document.getElementById("left_arrow")
+const mem_option_array = Array.from(document.querySelectorAll(".mem_option"))
+const mem_options_length = document.getElementsByClassName("mem_option").length - 1
+var mem_options_position = 0
 let passage
 var mode = 0
 const verseSelectForm = document.getElementById("options")
+
+//place element 0 in center
+mem_option_array[0].style.left = "50%";
 
 // document.getElementById("back").addEventListener("submit", function(event) {
 //     event.preventDefault()
@@ -129,10 +135,73 @@ const verseSelectForm = document.getElementById("options")
 //     }
 // }
 
-right_arrow.addEventListener("click", function() {
-    alert("right_arrow")
+right_arrow.addEventListener("click", function() { //mem_options_position INCREMENTS with right arrow
+    
+    //first ensure that we have not hit the higher end of the options list
+    if(mem_options_position >= mem_options_length)
+    {
+        shift_mem_box("0")
+        mem_options_position = 0
+    }
+    else
+    {
+        shift_mem_box("right")
+        mem_options_position += 1
+        console.log(mem_options_position)
+    }
 })
 
-left_arrow.addEventListener("click", function() {
-    alert("left_arrow")
+left_arrow.addEventListener("click", function() { //mem_options_position DECREMENTS with left arrow
+    
+    //first ensure that we have not lower end of the options list
+    if(mem_options_position-1 < 0)
+    {
+        shift_mem_box("N")
+        console.log("reset to end")
+        mem_options_position = mem_options_length
+    }
+    else
+    {
+        shift_mem_box("left")
+        mem_options_position -= 1
+        console.log(mem_options_position)
+    }
 })
+
+function shift_mem_box(direction) {
+    //direction = right
+    //direction = left
+    //direction = left until 0th element
+    //direction = right until Nth element
+
+    if(direction == "right")
+    {
+        console.log("right")
+        mem_option_array[mem_options_position].style.left = "-150%"
+        mem_option_array[mem_options_position + 1].style.left = "50%"
+    }
+    else if(direction == "left")
+    {
+        console.log("left")
+        mem_option_array[mem_options_position].style.left = "150%"
+        mem_option_array[mem_options_position - 1].style.left = "50%"
+    }
+    else if(direction == "0")
+    {
+        console.log("0th element")
+        mem_option_array.forEach((element) => 
+            element.style.left = "150%"
+        )
+        mem_option_array[0].style.left = "50%"
+    }
+    else if(direction == "N")
+    {
+        console.log("Nth element")
+        console.log("0th element")
+        mem_option_array.forEach((element) => 
+            element.style.left = "-150%"
+        )
+        mem_option_array[mem_options_length].style.left = "50%"
+    }
+
+}
