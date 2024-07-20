@@ -165,9 +165,7 @@ article{
 #memorize_box_blind_result {
     display: none;
     flex-direction: column;
-
-    overflow-x: scroll;
-
+    align-items: center;
     width: 100%;
     height: 60px;
 }
