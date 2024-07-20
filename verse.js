@@ -248,10 +248,7 @@ function shift_mem_box(direction) {
 
 submit_blind.addEventListener("click", function() {
     var inputText = document.getElementById("verseInput").value;
-    var skipped_char = false;
-    var holder
     let memorize_box_blind_result = document.getElementById("memorize_box_blind_result_text")
-    passage = "In the beginning, God created the heavens and the earth."
     //seperate the input and passage into arrays of words for processing.
     const regex = /[\w]+|[.,!?;:“”'()]/g;
     const input_words = inputText.match(regex);
@@ -306,6 +303,7 @@ submit_blind.addEventListener("click", function() {
 memorize_box_blind_result_back.addEventListener("click", function(){
     const memorize_box_blind_result = document.getElementById("memorize_box_blind_result")
     memorize_box_blind_result.style.display = "none"
+    memorize_box_blind_result.innerHTML = ""
     document.getElementById("memorize_box_blind_result_back").style.display = "none"
 
 
