@@ -303,7 +303,7 @@ submit_blind.addEventListener("click", function() {
 memorize_box_blind_result_back.addEventListener("click", function(){
     const memorize_box_blind_result = document.getElementById("memorize_box_blind_result")
     memorize_box_blind_result.style.display = "none"
-    memorize_box_blind_result.innerHTML = ""
+    document.getElementById("memorize_box_blind_result_text").innerHTML = ""
     document.getElementById("memorize_box_blind_result_back").style.display = "none"
 
 
