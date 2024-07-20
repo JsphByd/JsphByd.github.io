@@ -104,7 +104,12 @@
 
             <h1 id="memorize_target">Blind Recite</h1> <!-- Book Chapter:Verse-Verse header -->
             <textarea id="verseInput"></textarea>
-            <button type="submit">Submit</button>
+            <button id="memorize_box_blind_result_back">Back</button>
+            <button type="submit" id="submit_blind">Submit</button>
+
+            <div id="memorize_box_blind_result">
+                <div id="memorize_box_blind_result_text"></div>
+            </div>
 
         </div>
 
@@ -114,12 +119,18 @@
             <!-- need to load in the first letter of each word in the target -->
         </div>
 
+        <div id="memorize_box_guided" class="mem_option"> <!-- Input text directly from memory -->
+
+            <h1 id="memorize_target">Guided Blind</h1> <!-- Book Chapter:Verse-Verse header -->
+            <!-- only able to input the correct letters -->
+        </div>
+
         <div id="memorize_box_read" class="mem_option"> <!-- Input text directly from memory -->
 
             <h1 id="memorize_target">Read</h1> <!-- Book Chapter:Verse-Verse header -->
-            <p id="read_text"></p>
-
+            <p id="read_text">Select a Chapter/Verse!</p>
         </div>
+
     </div>
     
     
